@@ -5,7 +5,5 @@
     MovieTickets: **Description**
  */
 
-package PACKAGE_NAME;
-
 public class MovieTickets {
 }
