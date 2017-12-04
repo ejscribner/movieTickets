@@ -7,28 +7,60 @@
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import javax.swing.text.SimpleAttributeSet;
 import java.util.Scanner;
 
 public class MovieTickets {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Welcome Message");
+        System.out.println("Powering On");
         Boolean loginToken = adminLogin("admin", "123", input);
-        System.out.println(loginToken);
         //Manager enters data
+        String movieName = null;
+        double ticketPrice = 0.0;
+        int seatCount;
+        if(loginToken) {
+            movieName = getMovieName(input);
+            ticketPrice = getTicketPrice(input);
+            seatCount = 50;
+            System.out.println("Admin setup complete! To power off system, press 'q' after seeing the welcome message at any time");
+        }
+        customerDisplay(movieName, ticketPrice, input);
+        int tixPurchased = customerTicketNumber(input);
+
+    }
+    public static String getMovieName(Scanner input) {
         System.out.print("Name of movie: ");
         String movieName = getInput("", input);
+        return movieName;
+    }
+    public static double getTicketPrice(Scanner input) {
         System.out.print("Price: ");
-        int ticketPrice = getInput(10, input);
-        int seatCount = 50;
-        customer(movieName, ticketPrice);
+        double ticketPrice = getInput(10.01, input);
+        return ticketPrice;
     }
-    public static void customer(String movieName, int ticketPrice) {
-        System.out.println("Movie Name: " + movieName);
-        System.out.println("Showtime: " + 6);
-        System.out.println("Price: $" + ticketPrice);
+    public static void customerDisplay (String movieName, double ticketPrice, Scanner input) {
+        System.out.println("Welcome to the theater! Press 'p' to purchase tickets");
+        String purchaseAuth = getInput(" ", input);
+        if (purchaseAuth.equalsIgnoreCase("q")) {
+            System.exit(0);
+        }
+        if (purchaseAuth.equalsIgnoreCase("p")) {
+            System.out.println("Movie Name: " + movieName);
+            System.out.println("Showtime: " + 6);
+            System.out.println("Price: $" + ticketPrice);
+        } else {
+            System.out.println("Invalid entry");
+            customerDisplay(movieName, ticketPrice, input);
+        }
     }
+    public static int customerTicketNumber (Scanner input) {
+        System.out.println("How many tickets do you want?");
+        int numTix = getInput(4, input);
+        return numTix;
+    }
+
     public static Boolean adminLogin(String username, String password, Scanner input) {
         System.out.print("Please type your username: ");
         String enteredUsername = getInput("", input);
@@ -37,15 +69,28 @@ public class MovieTickets {
         Boolean hasPasswordToken = false;
         if(enteredUsername.equals(username) && enteredPassword.equals(password)) {
             hasPasswordToken = true;
+            System.out.println("Login Successful!");
+        }
+        if(!hasPasswordToken){
+            System.out.println("Incorrect Username or Password, please try again!");
+            hasPasswordToken = adminLogin(username, password, input);
         }
         return hasPasswordToken;
     }
+
     public static int getInput(int dataType, Scanner input) { //variable dataType used to overload the method
         int value = input.nextInt();
         return value;
     }
+
+    public static double getInput(double dataType, Scanner input) { //variable dataType used to overload the method
+        double value = input.nextDouble();
+        return value;
+    }
+
     public static String getInput(String dataType, Scanner input) { //variable dataType used to overload the method
         String value = input.nextLine();
         return value;
     }
+
 }
