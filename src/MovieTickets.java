@@ -27,8 +27,9 @@ public class MovieTickets {
             System.out.println("Admin setup complete! To power off system, press 'q' after seeing the welcome message at any time");
         }
         customerDisplay(movieName, ticketPrice, input);
-        int tixPurchased = customerTicketNumber(input);
-
+        int numTix = customerTicketNumber(input);
+        double change = cashOut(numTix, ticketPrice, input);
+        System.out.print(change);
     }
     public static String getMovieName(Scanner input) {
         System.out.print("Name of movie: ");
@@ -55,10 +56,27 @@ public class MovieTickets {
             customerDisplay(movieName, ticketPrice, input);
         }
     }
+
     public static int customerTicketNumber (Scanner input) {
-        System.out.println("How many tickets do you want?");
+        System.out.println("How many tickets would you like to purchase?");
         int numTix = getInput(4, input);
         return numTix;
+    }
+
+    public static double cashOut(int numTix, double ticketPrice, Scanner input) {
+        double cashCharged = numTix*ticketPrice;
+        System.out.println("Please insert your cash. (Type the number as xx.xx)");
+        double cashIn = getInput(1.1, input);
+        System.out.println(cashIn);
+        System.out.println(cashCharged);
+        if (cashIn < cashCharged) {
+            System.out.println("Not enough entered, please try again!");
+            cashOut(numTix, ticketPrice, input);
+        }
+        System.out.println(cashIn);
+        System.out.println(cashCharged);
+        double cashOut = cashIn-cashCharged;
+        return cashOut;
     }
 
     public static Boolean adminLogin(String username, String password, Scanner input) {
