@@ -64,18 +64,18 @@ public class MovieTickets {
     }
 
     public static double cashOut(int numTix, double ticketPrice, Scanner input) {
-        double cashCharged = numTix*ticketPrice;
+        double cashCharged = 0;
+        double cashIn = 0;
+        double cashOut = 0;
+        cashCharged = numTix*ticketPrice;
+        System.out.println("Your total is $" + cashCharged);
         System.out.println("Please insert your cash. (Type the number as xx.xx)");
-        double cashIn = getInput(1.1, input);
-        System.out.println(cashIn);
-        System.out.println(cashCharged);
-        if (cashIn < cashCharged) {
-            System.out.println("Not enough entered, please try again!");
-            cashOut(numTix, ticketPrice, input);
+        cashIn = getInput(1.1, input);
+        cashOut = cashIn-cashCharged;
+        if(cashIn < cashCharged) {
+            System.out.print("Not enough cash inserted. ");
+            return cashOut(numTix, ticketPrice, input);
         }
-        System.out.println(cashIn);
-        System.out.println(cashCharged);
-        double cashOut = cashIn-cashCharged;
         return cashOut;
     }
 
