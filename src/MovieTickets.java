@@ -26,10 +26,15 @@ public class MovieTickets {
             seatCount = 50;
             System.out.println("Admin setup complete! To power off system, press 'q' after seeing the welcome message at any time");
         }
+        do {
+            customerInteraction(movieName, ticketPrice, input);
+        } while (true);
+    }
+    public static void customerInteraction(String movieName, double ticketPrice, Scanner input) {
         customerDisplay(movieName, ticketPrice, input);
         int numTix = customerTicketNumber(input);
         double change = cashOut(numTix, ticketPrice, input);
-        System.out.print(change);
+        System.out.println(change);
     }
     public static String getMovieName(Scanner input) {
         System.out.print("Name of movie: ");
@@ -45,7 +50,11 @@ public class MovieTickets {
         System.out.println("Welcome to the theater! Press 'p' to purchase tickets");
         String purchaseAuth = getInput(" ", input);
         if (purchaseAuth.equalsIgnoreCase("q")) {
-            System.exit(0);
+            System.out.println("Please enter your username and password to power off the machine");
+            Boolean logoutToken = adminLogout("admin", "123", movieName, ticketPrice, input);
+            if(logoutToken) {
+                System.exit(0);
+            }
         }
         if (purchaseAuth.equalsIgnoreCase("p")) {
             System.out.println("Movie Name: " + movieName);
@@ -92,6 +101,26 @@ public class MovieTickets {
         if(!hasPasswordToken){
             System.out.println("Incorrect Username or Password, please try again!");
             hasPasswordToken = adminLogin(username, password, input);
+        }
+        return hasPasswordToken;
+    }
+
+    public static Boolean adminLogout(String username, String password, String movieName, double ticketPrice, Scanner input) {
+        System.out.print("Please type your username: ");
+        String enteredUsername = getInput("", input);
+        if(enteredUsername.equalsIgnoreCase("p")) {
+            customerInteraction(movieName, ticketPrice, input);
+        }
+        System.out.print("Please type your password: ");
+        String enteredPassword = getInput("", input);
+        Boolean hasPasswordToken = false;
+        if(enteredUsername.equals(username) && enteredPassword.equals(password)) {
+            hasPasswordToken = true;
+            System.out.println("Powering Down");
+        }
+        if(!hasPasswordToken){
+            System.out.println("Incorrect Username or Password, please try again or press 'p' to purchase tickets");
+            hasPasswordToken = adminLogout(username, password, movieName, ticketPrice, input);
         }
         return hasPasswordToken;
     }
