@@ -1,5 +1,5 @@
 # movieTickets
 CSE 02 Final Project
-Default login:
-  Username: admin
-  Password: 123
+Default login:</br>
+  Username: admin</br>
+  Password: 123</br>
