@@ -18,14 +18,13 @@
       <file leaf-file-name="MovieTickets.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MovieTickets.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="24" column="97" lean-forward="true" selection-start-line="24" selection-start-column="97" selection-end-line="24" selection-end-column="97" />
+            <state relative-caret-position="-1046">
+              <caret line="61" column="24" lean-forward="true" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
               <folding>
-                <element signature="e#0#5846#0" expanded="true" />
+                <element signature="e#0#7194#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="method#customerInteraction#0;class#MovieTickets#0" expanded="false" />
-                <element signature="method#getMovieName#0;class#MovieTickets#0" expanded="false" />
-                <element signature="method#getTicketPrice#0;class#MovieTickets#0" expanded="false" />
+                <element signature="e#1130#1131#0" expanded="true" />
+                <element signature="e#1203#1204#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -44,6 +43,10 @@
     <findStrings>
       <find>purchaseAuth</find>
       <find>customerDisplay</find>
+      <find>customerInteraction</find>
+      <find>adminLogout</find>
+      <find>exit</find>
+      <find>your change is</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -236,12 +239,12 @@
       <workItem from="1512093857179" duration="140000" />
       <workItem from="1512156211623" duration="3542000" />
       <workItem from="1512406774268" duration="10984000" />
-      <workItem from="1512577962692" duration="5110000" />
+      <workItem from="1512577962692" duration="7573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19776000" />
+    <option name="totallyTimeSpent" value="22239000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1348" extended-state="6" />
@@ -294,11 +297,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#5846#0" expanded="true" />
+            <element signature="e#0#7194#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#customerInteraction#0;class#MovieTickets#0" expanded="false" />
-            <element signature="method#getMovieName#0;class#MovieTickets#0" expanded="false" />
-            <element signature="method#getTicketPrice#0;class#MovieTickets#0" expanded="false" />
+            <element signature="e#1130#1131#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -308,25 +310,23 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#5846#0" expanded="true" />
+            <element signature="e#0#7194#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#customerInteraction#0;class#MovieTickets#0" expanded="false" />
-            <element signature="method#getMovieName#0;class#MovieTickets#0" expanded="false" />
-            <element signature="method#getTicketPrice#0;class#MovieTickets#0" expanded="false" />
+            <element signature="e#1130#1131#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MovieTickets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="24" column="97" lean-forward="true" selection-start-line="24" selection-start-column="97" selection-end-line="24" selection-end-column="97" />
+        <state relative-caret-position="-1046">
+          <caret line="61" column="24" lean-forward="true" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
           <folding>
-            <element signature="e#0#5846#0" expanded="true" />
+            <element signature="e#0#7194#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="method#customerInteraction#0;class#MovieTickets#0" expanded="false" />
-            <element signature="method#getMovieName#0;class#MovieTickets#0" expanded="false" />
-            <element signature="method#getTicketPrice#0;class#MovieTickets#0" expanded="false" />
+            <element signature="e#1130#1131#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
           </folding>
         </state>
       </provider>
