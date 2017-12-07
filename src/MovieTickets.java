@@ -1,8 +1,8 @@
 /*
     Created By: Elliot J Scribner on 11/30/17
     Student ID: ejs320
-    Lab #: **Num**
-    MovieTickets: **Description**
+    Final Project
+    MovieTickets: Machine to purchase movie tickets
  */
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
@@ -19,12 +19,10 @@ public class MovieTickets {
         //Manager enters data
         String movieName = null;
         double ticketPrice = 0.0;
-        int seatCount;
         if(loginToken) {
             movieName = getMovieName(input);
             ticketPrice = getTicketPrice(input);
-            seatCount = 50;
-            System.out.println("Admin setup complete! To power off system, press 'q' after seeing the welcome message at any time");
+            System.out.println("Manager setup complete! To access the manager dashboard, press '2' after seeing the welcome message at any time");
         }
         do {
             customerInteraction(movieName, ticketPrice, input);
@@ -34,29 +32,32 @@ public class MovieTickets {
         customerDisplay(movieName, ticketPrice, input);
         int numTix = customerTicketNumber(input);
         double change = cashOut(numTix, ticketPrice, input);
-        System.out.println(change);
+        System.out.println("Your change is: " + change);
     }
+
     public static String getMovieName(Scanner input) {
         System.out.print("Name of movie: ");
         String movieName = getInput("", input);
         return movieName;
     }
+
     public static double getTicketPrice(Scanner input) {
         System.out.print("Price: ");
         double ticketPrice = getInput(10.01, input);
         return ticketPrice;
     }
+
     public static void customerDisplay (String movieName, double ticketPrice, Scanner input) {
-        System.out.println("Welcome to the theater! Press 'p' to purchase tickets");
-        String purchaseAuth = getInput(" ", input);
-        if (purchaseAuth.equalsIgnoreCase("q")) {
+        System.out.println("Welcome to the theater! Press '1' to purchase tickets or '2' to access the manager dashboard");
+        int purchaseAuth = getInput(6, input);
+        if (purchaseAuth == 2) {
             System.out.println("Please enter your username and password to power off the machine");
             Boolean logoutToken = adminLogout("admin", "123", movieName, ticketPrice, input);
             if(logoutToken) {
                 System.exit(0);
             }
-        }
-        if (purchaseAuth.equalsIgnoreCase("p")) {
+        }if (purchaseAuth == 1) {
+            System.out.println("5");
             System.out.println("Movie Name: " + movieName);
             System.out.println("Showtime: " + 6);
             System.out.println("Price: $" + ticketPrice);
@@ -125,17 +126,17 @@ public class MovieTickets {
         return hasPasswordToken;
     }
 
-    public static int getInput(int dataType, Scanner input) { //variable dataType used to overload the method
+    public static int getInput(int dataTypeInt, Scanner input) { //variable dataType used to overload the method
         int value = input.nextInt();
         return value;
     }
 
-    public static double getInput(double dataType, Scanner input) { //variable dataType used to overload the method
+    public static double getInput(double dataTypeDouble, Scanner input) { //variable dataType used to overload the method
         double value = input.nextDouble();
         return value;
     }
 
-    public static String getInput(String dataType, Scanner input) { //variable dataType used to overload the method
+    public static String getInput(String dataTypeString, Scanner input) { //variable dataType used to overload the method
         String value = input.nextLine();
         return value;
     }
